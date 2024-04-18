@@ -22,6 +22,14 @@ def get_user_input():
 def clean_user_input(str):    
     return str.strip().lower()
 
+def remove_item_from_list(index):
+    index = index - 1
+    if index < 0 or index > len(list) - 1:
+        print("This item is not in the list!")
+    else:
+        del list[index]
+        print("Done!\n")
+
 def start_program():
     print("Hello! Welcome to \"Simple List App\"!\n")
 
@@ -37,6 +45,11 @@ def start_program():
             str = clean_user_input(str)
             list.append(str)
             print("Done!")
+        
+        elif action == "2":
+            show_items_in_list()
+            index_of_item_to_remove = input("\nWhich item to remove? ")
+            remove_item_from_list(int(index_of_item_to_remove))
 
         elif action == "3":
             print("How do you want to sort the list?")
