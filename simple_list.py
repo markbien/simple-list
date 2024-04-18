@@ -1,7 +1,7 @@
 list = []
 
 def provide_options():
-    print("\nTo proceed, choose from the options below and press ENTER:")
+    print("To proceed, choose from the options below and press ENTER:")
     print("\t[1] to add an item to the list")
     print("\t[2] to remove an item from the list")
     print("\t[3] to sort the list")
@@ -10,7 +10,7 @@ def provide_options():
 
 def show_items_in_list():
     if (len(list) < 1):
-        print("You don't have any items in the list. Please add an item first.\n")
+        print("You don't have any items in the list. Please add an item first.")
     else:
         print(f"Here's what you have in the list now:")
         for index in range(1, len(list)+1):
@@ -24,10 +24,11 @@ def clean_user_input(str):
 
 def start_program():
     print("Hello! Welcome to \"Simple List App\"!\n")
-    provide_options()
 
     while True:
+        provide_options()
         action = input("What do you want to do? ")
+        
         print()
 
         if action == "1":
@@ -35,6 +36,21 @@ def start_program():
             str = get_user_input()
             str = clean_user_input(str)
             list.append(str)
+            print("Done!")
+
+        elif action == "3":
+            print("How do you want to sort the list?")
+            print("\t[1] to sort in ascending order")
+            print("\t[2] to sort in descending order")
+            sort_option = input("Answer: ")
+            if sort_option == "1":
+                list.sort()
+            elif sort_option == "2":
+                list.sort(reverse=True)
+            else:
+                print("Invalid option!\n")
+                continue
+
             print("Done!")
 
         elif action == "4":
