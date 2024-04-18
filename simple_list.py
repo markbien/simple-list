@@ -12,15 +12,15 @@ def show_items_in_list():
     if (len(list) < 1):
         print("You don't have any items in the list. Please add an item first.")
     else:
-        print(f"Here's what you have in the list now:")
+        print("Here's what you have in the list now:")
         for index in range(1, len(list)+1):
             print(f"[{index}] - {list[index-1].capitalize()}")
 
 def get_user_input():
     return input("What do you want to add to the list: ")
 
-def clean_user_input(str):    
-    return str.strip().lower()
+def clean_user_input(user_input):    
+    return user_input.strip().lower()
 
 def remove_item_from_list(index):
     index = index - 1
@@ -41,9 +41,9 @@ def start_program():
 
         if action == "1":
             # Get user input, then clean it, and then add to the list
-            str = get_user_input()
-            str = clean_user_input(str)
-            list.append(str)
+            user_input = get_user_input()
+            user_input = clean_user_input(user_input)
+            list.append(user_input)
             print("Done!")
         
         elif action == "2":
@@ -67,8 +67,8 @@ def start_program():
             print("Done!")
 
         elif action == "4":
-            show_items_in_list()
-        
+            show_items_in_list()     
+
         elif action == "5":
             print("Thank you for using \"Simple List\" app. Have a great day ahead!\n")
             break
